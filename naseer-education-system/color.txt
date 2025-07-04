@@ -1,0 +1,7 @@
+Primary Color (Dark Blue - #1a365d): Represents trust, stability, and intelligence - perfect for an educational institution
+
+Secondary Color (Gold - #d4af37): Symbolizes quality, prestige, and achievement - to highlight important elements
+
+Accent Color (Light Blue - #4299e1): For a friendly, approachable feel that complements the dark blue
+
+White (#ffffff): For clean backgrounds and readability

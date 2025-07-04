@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naseer Education System - Quality Education for All</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #d4af37;
+            --accent-color: #4299e1;
+            --light-bg: #f7fafc;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-weight: 500;
+            margin: 0 5px;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c5282 100%);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .feature-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .light-bg {
+            background-color: var(--light-bg);
+        }
+        
+        .testimonial-card {
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .highlight {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .course-card .badge {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        .contact-info i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .circular-img-sm {
+    width: 150px;
+    height: 150px;
+}
+.circular-img-md {
+    width: 250px;
+    height: 250px;
+}
+.circular-img-lg {
+    width: 350px;
+    height: 350px;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-graduation-cap me-2"></i>NASEER EDUCATION SYSTEM
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="notes.html">Notes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-outline-light" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">Quality Education for <span class="highlight">Brighter Future</span></h1>
+                    <p class="lead mb-4">Empowering students with knowledge, skills, and values to succeed in an ever-changing world.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="courses.html" class="btn btn-light btn-lg px-4">Our Courses</a>
+                        <a href="contact.html" class="btn btn-outline-light btn-lg px-4">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <img src="main.jpg" alt="Students Learning" class="img-fluid rounded-circle shadow circular-img-md">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Why Choose <span class="highlight">Naseer Education</span></h2>
+                <p class="lead">We provide exceptional learning experiences tailored to your needs</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card card p-4 text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h4>Expert Faculty</h4>
+                        <p>Learn from highly qualified and experienced teachers dedicated to your success.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card card p-4 text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h4>Comprehensive Curriculum</h4>
+                        <p>Well-structured courses covering all essential topics with practical applications.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card card p-4 text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Personalized Attention</h4>
+                        <p>Small class sizes ensuring individual attention and better learning outcomes.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card card p-4 text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h4>Proven Results</h4>
+                        <p>Consistent track record of excellent academic performance by our students.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-5 light-bg">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="side.jpg" alt="About Naseer Education" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">About <span class="highlight">Our Academy</span></h2>
+                    <p class="lead">Naseer Education System is committed to providing quality education that transforms lives.</p>
+                    <p>Founded with a vision to bridge the gap between traditional education and modern learning needs, we have been serving the community with excellence for over a decade. Our holistic approach focuses on academic excellence, character building, and skill development.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Modern teaching methodologies</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Regular assessments and feedback</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Well-equipped learning environment</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Focus on practical knowledge</li>
+                    </ul>
+                    <a href="about.html" class="btn btn-primary mt-3">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Our <span class="highlight">Courses</span></h2>
+                <p class="lead">Comprehensive programs designed for academic success</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card card h-100">
+                        <img src="https://via.placeholder.com/400x250/1a365d/ffffff?text=Science" class="card-img-top" alt="Science Course">
+                        <div class="card-body">
+                            <span class="badge mb-2">Popular</span>
+                            <h4 class="card-title">Science Program</h4>
+                            <p class="card-text">Comprehensive coverage of Physics, Chemistry, and Biology with practical experiments and problem-solving sessions.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="far fa-clock me-2"></i> 6 Months Duration</li>
+                                <li><i class="fas fa-user-graduate me-2"></i> Grade 9-12</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <a href="#" class="btn btn-outline-primary w-100">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card card h-100">
+                        <img src="https://via.placeholder.com/400x250/1a365d/ffffff?text=Mathematics" class="card-img-top" alt="Mathematics Course">
+                        <div class="card-body">
+                            <h4 class="card-title">Mathematics Program</h4>
+                            <p class="card-text">From basic concepts to advanced problem-solving techniques, master mathematics with our expert faculty.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="far fa-clock me-2"></i> 4 Months Duration</li>
+                                <li><i class="fas fa-user-graduate me-2"></i> All Grades</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <a href="#" class="btn btn-outline-primary w-100">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card card h-100">
+                        <img src="https://via.placeholder.com/400x250/1a365d/ffffff?text=Computer" class="card-img-top" alt="Computer Course">
+                        <div class="card-body">
+                            <span class="badge mb-2">New</span>
+                            <h4 class="card-title">Computer Science</h4>
+                            <p class="card-text">Learn programming, web development, and computer fundamentals from industry experts.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="far fa-clock me-2"></i> 3 Months Duration</li>
+                                <li><i class="fas fa-user-graduate me-2"></i> Grade 6-12</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <a href="#" class="btn btn-outline-primary w-100">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="courses.html" class="btn btn-primary btn-lg px-4">View All Courses</a>
+            </div>
+        </div>
+    </section>
+
+  <!-- Testimonials Section -->
+<section class="py-5 light-bg">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="section-title">What <span class="highlight">Students Say</span></h2>
+            <p class="lead">Success stories from our alumni community</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card p-4 h-100 testimonial-card text-center">
+                    <!-- Student Image (full width) -->
+                    <div class="mb-3 mx-auto" style="width: 150px; height: 150px; overflow: hidden; border-radius: 50%; border: 3px solid var(--secondary-color);">
+                        <img src="1.jpg" alt="Ahmed Khan" class="img-fluid h-100 w-100" style="object-fit: cover;">
+                    </div>
+                    <!-- Student Name -->
+                    <h5 class="mb-1">Ahmed Khan</h5>
+                    <small class="text-muted d-block mb-3">Science Student</small>
+                    <!-- Testimonial Text -->
+                    <p class="mb-0">"Naseer Education transformed my understanding of complex scientific concepts. The teachers go above and beyond to ensure every student succeeds."</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card p-4 h-100 testimonial-card text-center">
+                    <!-- Student Image (full width) -->
+                    <div class="mb-3 mx-auto" style="width: 150px; height: 150px; overflow: hidden; border-radius: 50%; border: 3px solid var(--secondary-color);">
+                        <img src="2.png" alt="Sara Ahmed" class="img-fluid h-100 w-100" style="object-fit: cover;">
+                    </div>
+                    <!-- Student Name -->
+                    <h5 class="mb-1">Sara Ahmed</h5>
+                    <small class="text-muted d-block mb-3">Mathematics Student</small>
+                    <!-- Testimonial Text -->
+                    <p class="mb-0">"The personalized attention I received helped me overcome my fear of math. Now I'm scoring top marks and even enjoying the subject!"</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card p-4 h-100 testimonial-card text-center">
+                    <!-- Student Image (full width) -->
+                    <div class="mb-3 mx-auto" style="width: 150px; height: 150px; overflow: hidden; border-radius: 50%; border: 3px solid var(--secondary-color);">
+                        <img src="1.jpg" alt="Mr. Jamal" class="img-fluid h-100 w-100" style="object-fit: cover;">
+                    </div>
+                    <!-- Student Name -->
+                    <h5 class="mb-1">Mr. Jamal</h5>
+                    <small class="text-muted d-block mb-3">Parent</small>
+                    <!-- Testimonial Text -->
+                    <p class="mb-0">"As a parent, I appreciate the regular progress updates and the genuine care the teachers show for each student's development."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Call to Action -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container py-5 text-center">
+            <h2 class="display-5 fw-bold mb-4">Ready to Transform Your Academic Journey?</h2>
+            <p class="lead mb-5">Join hundreds of successful students who trusted Naseer Education System for their learning needs.</p>
+            <a href="contact.html" class="btn btn-light btn-lg px-4 me-3">Enroll Now</a>
+            <a href="contact.html" class="btn btn-outline-light btn-lg px-4">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="text-white mb-4">
+                        <i class="fas fa-graduation-cap me-2"></i>NASEER EDUCATION SYSTEM
+                    </h4>
+                    <p>Committed to providing quality education that empowers students to achieve their full potential and become responsible global citizens.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="about.html">About Us</a></li>
+                        <li class="mb-2"><a href="courses.html">Courses</a></li>
+                        <li class="mb-2"><a href="notes.html">Study Notes</a></li>
+                        <li class="mb-2"><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">Courses</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Science Program</a></li>
+                        <li class="mb-2"><a href="#">Mathematics</a></li>
+                        <li class="mb-2"><a href="#">Computer Science</a></li>
+                        <li class="mb-2"><a href="#">English Language</a></li>
+                        <li class="mb-2"><a href="#">Test Preparation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="fas fa-map-marker-alt"></i> 123 Education Street, Academic City
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-phone"></i> +123 456 7890
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-envelope"></i> info@naseeredu.com
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 6:00 PM
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-5 mb-4" style="border-color: rgba(255, 255, 255, 0.1);">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 Naseer Education System. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> for quality education</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Active navigation link highlighting
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 300) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
